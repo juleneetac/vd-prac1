@@ -41,6 +41,7 @@ pip install -r requirements.txt
 
 **Ejecución del main**
 ```shell
+python src/NOC_codes.py
 python src/main.py
 ```
 

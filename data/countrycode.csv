@@ -55,10 +55,10 @@ CK,COK,184,Cook Islands (the),Cook Islands
 CR,CRI,188,Costa Rica,Costa Rica
 HR,HRV,191,Croatia,Croatia
 CU,CUB,192,Cuba,Cuba
-CW,CUW,531,Cura‡ao,Cura‡ao
+CW,CUW,531,Curaï¿½ao,Curaï¿½ao
 CY,CYP,196,Cyprus,Cyprus
 CZ,CZE,203,Czechia,Czechia
-CI,CIV,384,C“te d'Ivoire,C“te d'Ivoire
+CI,CIV,384,Cï¿½te d'Ivoire,d'Ivoire
 DK,DNK,208,Denmark,Denmark
 DJ,DJI,262,Djibouti,Djibouti
 DM,DMA,212,Dominica,Dominica
@@ -119,6 +119,7 @@ KE,KEN,404,Kenya,Kenya
 KI,KIR,296,Kiribati,Kiribati
 KP,PRK,408,Korea (the Democratic People's Republic of),North Korea
 KR,KOR,410,Korea (the Republic of),South Korea
+XK,XKX,9999,Kosovo,Kosovo
 KW,KWT,414,Kuwait,Kuwait
 KG,KGZ,417,Kyrgyzstan,Kyrgyzstan
 LA,LAO,418,Lao People's Democratic Republic (the),Laos
@@ -240,7 +241,7 @@ UY,URY,858,Uruguay,Uruguay
 UZ,UZB,860,Uzbekistan,Uzbekistan
 VU,VUT,548,Vanuatu,Vanuatu
 VE,VEN,862,Venezuela (Bolivarian Republic of),Venezuela
-VN,VNM,704,Viet Nam,Viet Nam
+VN,VNM,704,Viet Nam,Vietnam
 VG,VGB,92,Virgin Islands (British),British Virgin Islands
 VI,VIR,850,Virgin Islands (U.S.),U.S. Virgin Islands
 WF,WLF,876,Wallis and Futuna,Wallis and Futuna

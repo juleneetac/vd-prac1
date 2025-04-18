@@ -1,5 +1,5 @@
 
-Region,Country,NOC
+Region,Country,NOC_country
 Africa,Algeria,ALG
 Africa,Angola,ANG
 Africa,Benin,BEN
@@ -13,7 +13,7 @@ Africa,Chad,CHA
 Africa,Comoros,COM
 Africa,Congo,CGO
 Africa,Democratic Republic of the Congo,COD
-Africa,Côte d’Ivoire,CIV
+Africa,d'Ivoire,CIV
 Africa,Djibouti,DJI
 Africa,Egypt,EGY
 Africa,Eritrea,ERI
@@ -87,7 +87,7 @@ The Americas,Peru,PER
 The Americas,Puerto Rico,PUR
 The Americas,Saint Kitts and Nevis,SKN
 The Americas,Saint Lucia,LCA
-The Americas,St. Vincent and the Grenadines,VIN
+The Americas,Saint Vincent and the Grenadines,VIN
 The Americas,Suriname,SUR
 The Americas,Trinidad and Tobago,TTO
 The Americas,United States of America,USA
@@ -131,9 +131,9 @@ Asia,Singapore,SGP
 Asia,Sri Lanka,SRI
 Asia,Syrian Arab Republic,SYR
 Asia,Tajikistan,TJK
-Asia,Chinese Taipei,TPE
+Asia,Taiwan,TPE
 Asia,Thailand,THA
-Asia,Democratic Rep. of Timor-Leste,TLS
+Asia,Timor-Leste,TLS
 Asia,Turkmenistan,TKM
 Asia,United Arab Emirates,UAE
 Asia,Uzbekistan,UZB
@@ -157,7 +157,7 @@ Europe,Finland,FIN
 Europe,France,FRA
 Europe,Georgia,GEO
 Europe,Germany,GER
-Europe,Great Britain,GBR
+Europe,United Kingdom,GBR
 Europe,Greece,GRE
 Europe,Hungary,HUN
 Europe,Ireland,IRL
@@ -169,7 +169,7 @@ Europe,Latvia,LAT
 Europe,Liechtenstein,LIE
 Europe,Lithuania,LTU
 Europe,Luxembourg,LIE
-Europe,North Macedonia,MKD
+Europe,Republic of North Macedonia,MKD
 Europe,Malta,MLT
 Europe,Moldova,MDA
 Europe,Monaco,MON
@@ -185,7 +185,7 @@ Europe,Slovakia,SVK
 Europe,Slovenia,SLO
 Europe,Sweden,SWE
 Europe,Switzerland,SUI
-Europe,Türkiye,TUR
+Europe,Turkey,TUR
 Europe,Ukraine,UKR
 Oceania,American Samoa,ASA
 Oceania,Australia,AUS
@@ -194,7 +194,7 @@ Oceania,Fiji,FIJ
 Oceania,Guam,GUM
 Oceania,Kiribati,KIR
 Oceania,Marshall Islands,MHL
-Oceania,Federated States of Micronesia,FSM
+Oceania,Micronesia,FSM
 Oceania,Nauru,NRU
 Oceania,New Zealand,NZL
 Oceania,Palau,PLW
@@ -204,3 +204,34 @@ Oceania,Samoa,SAM
 Oceania,Tonga,TGA
 Oceania,Tuvalu,TUV
 Oceania,Vanuatu,VAN
+Americas,Netherlands,AHO
+Independent,Individual Neutral Athletes,AIN
+Oceania,Australasia,ANZ
+Europe,Belarus,BLR
+Europe,Czechia,BOH
+Europe,Greece,CRT
+Independent,Refugee Olympic Team,EOR
+Europe,Unified Team,EUN
+Europe,Germany,FRG
+Europe,Germany,GDR
+Independent,Independent Olympic Athletes,IOA
+Asia,Lebanon,LIB
+Europe,Luxembourg,LUX
+Asia,Malaysia,MAL
+Asia,Malaysia,NBO
+Americas,Newfoundland,NFL
+Africa,Zimbabwe,RHO
+Europe,Russian Olympic Committee,ROC
+Independent,Refugee Olympic Team,ROT
+Europe,Russian Federation,RUS
+Europe,Saarland,SAA
+Europe,Serbia and Montenegro,SCG
+Europe,Czechoslovakia,TCH
+Africa,Egypt,UAR
+Unknown,Unknown,UNK
+Europe,Soviet Union,URS
+Asia,Vietnam,VNM
+Americas,West Indies Federation,WIF
+Asia,Yemen,YAR
+Asia,Yemen,YMD
+Europe,Yugoslavia,YUG
