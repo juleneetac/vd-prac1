@@ -1,11 +1,13 @@
 
 import pandas as pd
 import numpy as np
+import pycountry
 
 
 #~#  Cargar datos
 df_code = pd.read_csv("data/countrycode.csv", encoding='latin1')
 df_olympic = pd.read_csv("data/olympics.csv")
+df_pop0 = pd.read_csv("data/population0_2023.csv")
 df_pop60 = pd.read_csv("data/population1960_2023.csv")
 df_pop24 = pd.read_csv("data/population2024.csv")
 df_noc = pd.read_csv("data/noc.csv", encoding='latin1')
@@ -20,7 +22,6 @@ df_olympic = df_olympic.merge(
 )
 df_olympic.drop(columns='NOC_country', inplace=True)
 
-print(df_olympic.head())
 
 #~# Añadir la columna Country_code a df_olympic con los datos de df_code
 df_olympic = df_olympic.merge(
@@ -32,14 +33,8 @@ df_olympic = df_olympic.merge(
 df_olympic.drop(columns='country_common', inplace=True)
 df_olympic.rename(columns={'iso3': 'Country_code'}, inplace=True)
 
-print(df_olympic.head())
-
 # Quitar filas que tengan la columna Country_code vacía
 df_olympic = df_olympic.dropna(subset=['Country_code'])
-
-# Asegurarse que no hay valores nulos
-print(df_olympic.isna().sum()[df_olympic.isna().sum() > 0])
-
 
 
 #~# Añadir la columna "Population 2024" del dataset population2024
@@ -51,8 +46,6 @@ df_2024 = df_2024.merge(df_pop24[['Country', 'Population 2024']], on='Country', 
 
 # Renombrar la columna para que tenga el nombre que quieres
 df_2024 = df_2024.rename(columns={'Population 2024': 'Population_year'})
-
-print(df_2024.head())
 
 # Para los años distintos de 2024, el valor de Population_year será NaN
 df_rest = df_olympic[df_olympic['Year'] != 2024].copy()
@@ -101,7 +94,76 @@ df_olympic['Population_year'] = df_olympic['Population_year'].combine_first(df_o
 df_olympic.drop(columns=['Population_year_y'], inplace=True)
 df_olympic.drop(columns=['Population_year_x'], inplace=True)
 
-print(df_olympic.head())
 
-df_olympic.to_csv('data/df_olympic_out.csv', index=False)
+#~#Agregar la población de cada país y año (con df_pop0) a df_olympic
+# Primero nos aseguramos de que las columnas coincidan en tipo
+df_pop0['Year'] = df_pop0['Year'].astype(int)
+
+# Filtrar solo las filas de df_olympic donde Population_year está vacío
+df_missing_pop = df_olympic[df_olympic['Population_year'].isna()]
+
+# Hacemos el merge con df_pop0 usando Country_code (Code) y Year como claves
+df_filled_pop = df_missing_pop.merge(
+    df_pop0,
+    left_on=['Country_code', 'Year'],
+    right_on=['Code', 'Year'],
+    how='left'
+)
+
+# Reemplazamos los valores nulos en df_olympic con los nuevos obtenidos
+df_olympic.loc[df_olympic['Population_year'].isna(), 'Population_year'] = df_filled_pop['Population (historical)'].values
+
+# (Opcional) Elimina la columna 'Code' si no la necesitas
+df_olympic.drop(columns=['Code'], errors='ignore', inplace=True)
+
+
+#~# Convertir a string las columnas de tipo object restantes
+df_olympic['Name'] = df_olympic['Name'].astype('string')
+df_olympic['Sex'] = df_olympic['Sex'].astype('string')
+df_olympic['Team'] = df_olympic['Team'].astype('string')
+df_olympic['Season'] = df_olympic['Season'].astype('string')
+df_olympic['City'] = df_olympic['City'].astype('string')
+df_olympic['Sport'] = df_olympic['Sport'].astype('string')
+df_olympic['Event'] = df_olympic['Event'].astype('string')
+df_olympic['Medal'] = df_olympic['Medal'].astype('string')
+df_olympic['NOC'] = df_olympic['NOC'].astype('string')
+df_olympic['Country'] = df_olympic['Country'].astype('string')
+df_olympic['Country_code'] = df_olympic['Country_code'].astype('string')
+
+#~# Sacar info del dataset final
+# Información general del dataset
+df_olympic.info()
+print("-" * 50)
+
+# Dimensiones del dataset
+print("Dimensiones del dataset:")
+print("Shape (filas, columnas):", df_olympic.shape)
+print("Columnas:\n", df_olympic.columns)
+print("-" * 50)
+
+# Nulos y valores faltantes
+print("Valores nulos por columna:")
+print(df_olympic.isna().sum())
+print("\nPorcentaje de nulos por columna:")
+print(df_olympic.isna().mean() * 100)
+
+# Estadísticas descriptivas
+print("Estadísticas descriptivas (todas las columnas):")
+print(df_olympic.describe(include='all'))
+print("-" * 50)
+
+# Duplicados
+print("Número de filas duplicadas:")
+print(df_olympic.duplicated().sum())
+print("-" * 50)
+
+df_olympic.to_csv('data/out/df_olympic_out.csv', index=False)
 print("CSV df_olympic_full.csv guardado")
+
+
+
+#~# Comprobar si el codigo de pais iso3 es valido
+def is_valid_iso3(code):
+    return pycountry.countries.get(alpha_3=code) is not None
+
+df_olympic['valid_code'] = df_olympic['Country_code'].apply(is_valid_iso3)
