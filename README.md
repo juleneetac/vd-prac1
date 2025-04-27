@@ -1,5 +1,5 @@
-# PEC2 - Convex Hull
-PEC2 - Visualización de Datos - Data Science - UOC
+# PRAC1 - Proyecto de visualización
+PRAC1 - Visualización de Datos - Data Science - UOC
 
 ## Autores
 Julen
@@ -10,16 +10,16 @@ Julen
     - NOC_codes.py: lógica para pasar la lista de país y código NOC a csv
 
 + /data/
-    - countrycode.csv: 
-    - noc.csv: 
-    - olympics.csv: 
-    - population0_2023.csv: 
-    - population1960_2023.csv: 
-    - population2024.csv: 
-    - /out/:
-        -- df_olympic_out.csv:
+    - countrycode.csv: [Kaggle, Country Codes (ISO 3166)](https://www.kaggle.com/datasets/wbdill/country-codes-iso-3166)
+    - noc.csv: CSV resultante de ejecutar el fichero NOC_codes.py
+    - olympics.csv: [Kaggle, Summer Olympics Medals (1896-2024)](https://www.kaggle.com/datasets/stefanydeoliveira/summer-olympics-medals-1896-2024)
+    - population0_2023.csv: [Our World in Data, Population](https://ourworldindata.org/grapher/population)
+    - population1960_2023.csv: [Kaggle, World population from 1960 to 2023](https://www.kaggle.com/datasets/fredericksalazar/population-world-since-1960-to-2021)
+    - population2024.csv: [Kaggle, World Population by country 2024](https://www.kaggle.com/datasets/dataanalyst001/world-population-by-country-2024)
+    - /out/:  
+        -- df_olympic_out.csv: CSV resultante de ejecutar main.py. Dataset con el que se realizará la visualización.
 
-+ README.md: contiene informción útil respecto al proyecto, como quienes son sus autores o como se ejecuta.
++ README.md: contiene información útil respecto al proyecto, como quienes son sus autores o como se ejecuta.
 
 + requirements.txt:  librerías necesarias para ejecutar el código.
 
@@ -27,33 +27,49 @@ Julen
 
 ## Instalación
 
-**Creación del entorno virtual**
-
-En el terminal del proyecto se deberá poner el siguiente comando:
+**1. Creación del entorno virtual**
+Si es la primera vez que se usa este proyecto,
+en el terminal se lanzará el siguiente comando:
 
 ```shell
 python -m venv venvolympic
 ```
+**2. Ejecución del programa**
+```shell
+bash run.sh
+```
+o
+```shell
+.\run.sh
+```
+----------------------------------------------------------------------------
+## Alternativa, en caso de error
 
-**Activación del entorno virtual**
+Si al ejecutar el fichero run.sh diera algún error, habría que ejecutar el entorno manualmente.
+Despuñes del paso "1. Creación del entorno virtual", ejecutar lo siguiente:
+
+**2. Activación del entorno virtual**
 ```shell
 venvolympic\Scripts\activate
 ```
 
-**Instalar requirements**
+**3. Instalar requirements**
 ```shell
 pip install -r requirements.txt
 ```
 
 ## Instrucciones para el Run
 
-**Ejecución del main**
+**4. Ejecución del main**
 ```shell
+4.1.  
 python src/NOC_codes.py
+
+4.2.  
 python src/main.py
 ```
 
-**Antes de subir el codigo a git, hacer update del requirements.txt**
+**5. (Opcional) Antes de subir el codigo a git, hacer update del requirements.txt**
 ```shell
-pip3 freeze > requirements.txt
+pip freeze > requirements.txt
 ```
