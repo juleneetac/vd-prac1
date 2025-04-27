@@ -25,6 +25,8 @@ Julen
 
 + .gitignore: se añaden los archivos que no se quieren incluir en el repositorio
 
++ LICENSE: Licencia de código abierto "GNU General Public License v3.0"
+
 ## Instalación
 
 **1. Creación del entorno virtual**
