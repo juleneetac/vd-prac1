@@ -12,6 +12,8 @@ df_pop60 = pd.read_csv("data/population1960_2023.csv")
 df_pop24 = pd.read_csv("data/population2024.csv")
 df_noc = pd.read_csv("data/noc.csv", encoding='latin1')
 
+#~# Quitar la columna Team a df_olympic
+df_olympic.drop(columns='Team', inplace=True)
 
 #~# Añadir la columna Country a df_olympic con los datos de df_noc
 df_olympic = df_olympic.merge(
@@ -120,7 +122,6 @@ df_olympic.drop(columns=['Code'], errors='ignore', inplace=True)
 #~# Convertir a string las columnas de tipo object restantes
 df_olympic['Name'] = df_olympic['Name'].astype('string')
 df_olympic['Sex'] = df_olympic['Sex'].astype('string')
-df_olympic['Team'] = df_olympic['Team'].astype('string')
 df_olympic['Season'] = df_olympic['Season'].astype('string')
 df_olympic['City'] = df_olympic['City'].astype('string')
 df_olympic['Sport'] = df_olympic['Sport'].astype('string')

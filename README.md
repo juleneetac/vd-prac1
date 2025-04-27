@@ -7,9 +7,17 @@ Julen
 ## Estructura del proyecto
 + /src/
     - main.py: archivo desde donde se ejecuta el código principal
+    - NOC_codes.py: lógica para pasar la lista de país y código NOC a csv
 
 + /data/
-    - data_links.txt: url de la fuente de datos
+    - countrycode.csv: 
+    - noc.csv: 
+    - olympics.csv: 
+    - population0_2023.csv: 
+    - population1960_2023.csv: 
+    - population2024.csv: 
+    - /out/:
+        -- df_olympic_out.csv:
 
 + README.md: contiene informción útil respecto al proyecto, como quienes son sus autores o como se ejecuta.
 
